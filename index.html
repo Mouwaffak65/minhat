@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منحة لايف - موقع الفرص التعليمية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --font-arabic: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        /* Styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-arabic);
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* En-tête */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        /* Section principale */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Filtres */
+        .filters {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .filter-select {
+            padding: 0.7rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            min-width: 180px;
+            font-size: 1rem;
+        }
+
+        /* Grille d'opportunités */
+        .opportunities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 3rem;
+        }
+
+        .opportunity-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .opportunity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .card-header {
+            padding: 1.2rem;
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .card-header h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .card-body {
+            padding: 1.2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .opportunity-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .meta-item i {
+            color: var(--secondary-color);
+            width: 20px;
+        }
+
+        .deadline {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .card-actions.single-btn {
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            font-weight: bold;
+            flex: 1;
+        }
+
+        .btn-detail {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-detail:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-apply {
+            background-color: var(--success-color);
+            color: white;
+        }
+
+        .btn-apply:hover {
+            background-color: #27ae60;
+        }
+
+        /* Pied de page */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .filter-group {
+                flex-direction: column;
+            }
+
+            .filter-select {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .opportunities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-actions {
+                flex-direction: column;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Animation de chargement */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: var(--secondary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Indicateur de catégorie */
+        .category-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Modal pour les détails */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .modal-header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .modal-body {
+            padding: 1.5rem;
+        }
+        
+        .detail-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .detail-value {
+            color: #555;
+        }
+        
+        .detail-list {
+            padding-right: 1.5rem;
+        }
+        
+        .detail-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Pages de contenu */
+        .content-page {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            line-height: 1.8;
+        }
+        
+        .content-page h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .content-page h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem 0;
+        }
+        
+        .content-page p {
+            margin-bottom: 1rem;
+        }
+        
+        .content-page ul {
+            padding-right: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content-page li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item i {
+            color: var(--secondary-color);
+            width: 30px;
+            font-size: 1.3rem;
+        }
+        
+        .ad-notice {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            color: #856404;
+        }
+    </style>
+</head>
+<body lang="ar">
+    <!-- En-tête -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-img">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo"><a href="index.html">منحة <span>لايف</span></a></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section principale -->
+    <section class="hero">
+        <div class="container">
+            <h1>ابـحـث عـن فـرصـتـك الـمـثـالى</h1>
+            <p>مـنـحـة لايـف يـو فـر لـك أكـثـر مـن ١٠٠٠ فـرصـة لـلـدراسـة والـتـدريـب والـعـمـل فـي جـمـيـع أنـحـاء الـعـالـم</p>
+        </div>
+    </section>
+
+    <!-- Filtres -->
+    <section class="container">
+        <div class="filters">
+            <div class="filter-group">
+                <select class="filter-select" id="country-filter">
+                    <option value="">جميع الدول</option>
+                    <option value="المملكة العربية السعودية">المملكة العربية السعودية</option>
+                    <option value="الإمارات العربية المتحدة">الإمارات العربية المتحدة</option>
+                    <option value="قطر">قطر</option>
+                    <option value="الكويت">الكويت</option>
+                    <option value="مصر">مصر</option>
+                    <option value="المغرب">المغرب</option>
+                    <option value="الولايات المتحدة">الولايات المتحدة</option>
+                    <option value="كندا">كندا</option>
+                    <option value="المملكة المتحدة">المملكة المتحدة</option>
+                    <option value="فرنسا">فرنسا</option>
+                    <option value="ألمانيا">ألمانيا</option>
+                </select>
+                <select class="filter-select" id="level-filter">
+                    <option value="">جميع المستويات</option>
+                    <option value="البكالوريوس">البكالوريوس</option>
+                    <option value="الماجستير">الماجستير</option>
+                    <option value="الدكتوراه">الدكتوراه</option>
+                    <option value="الدبلوم">الدبلوم</option>
+                    <option value="الثانوية العامة">الثانوية العامة</option>
+                </select>
+                <select class="filter-select" id="category-filter">
+                    <option value="">جميع الفئات</option>
+                    <option value="bourses">بـروامج الـدراسـيـة</option>
+                    <option value="jobs">وظـائـف</option>
+                    <option value="formations">دورات تـدريـبـيـة</option>
+                    <option value="infos">مـعـلـومـات تـعـلـيـمـيـة</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grille d'opportunités -->
+    <section class="container">
+        <div class="opportunities-grid" id="opportunities-container">
+            <!-- Les opportunités seront chargées ici par JavaScript -->
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal pour les détails -->
+    <div class="modal" id="detail-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">تفاصيل الفرصة</h2>
+                <button class="close-btn" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Le contenu du modal sera chargé ici -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Page de politique de confidentialité -->
+    <div class="modal" id="privacy-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>سياسة الخصوصية</h2>
+                <button class="close-btn" id="close-privacy">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="content-page">
+                    <h2>سياسة الخصوصية لمنصة منحة لايف</h2>
+                    
+                    <p>مرحباً بكم في منصة منحة لايف. نحن ندرك أهمية الخصوصية والأمان للمعلومات الشخصية لمستخدمينا. تشرح سياسة الخصوصية هذه كيفية جمعنا واستخدامنا وحماية معلوماتكم الشخصية.</p>
+                    
+                    <h3>المعلومات التي نجمعها</h3>
+                    <p>قد نجمع الأنواع التالية من المعلومات:</p>
+                    <ul>
+                        <li>المعلومات الشخصية: الاسم، البريد الإلكتروني، رقم الهاتف عند التسجيل أو التواصل معنا</li>
+                        <li>معلومات التصفح: عنوان IP، نوع المتصفح، الصفحات التي تزورها، وقت الزيارة</li>
+                        <li>معلومات التفضيلات: الاهتمامات التعليمية، المجالات المفضلة، أنواع الفرص المطلوبة</li>
+                    </ul>
+                    
+                    <h3>كيف نستخدم معلوماتكم</h3>
+                    <p>نستخدم المعلومات التي نجمعها للأغراض التالية:</p>
+                    <ul>
+                        <li>توفير وتخصيص خدمات المنصة</li>
+                        <li>إرسال إشعارات بالفرص الجديدة المناسبة لاهتماماتك</li>
+                        <li>تحسين تجربة المستخدم وتطوير خدمات جديدة</li>
+                        <li>الرد على استفساراتك وطلباتك</li>
+                        <li>تحليل استخدام الموقع لأغراض إحصائية</li>
+                    </ul>
+                    
+                    <h3>الإعلانات</h3>
+                    <div class="ad-notice">
+                        <p><strong>ملاحظة حول الإعلانات:</strong> نستخدم خدمات إعلانية مثل AdMob وغيرها لعرض إعلانات مخصصة. قد تجمع هذه الخدمات معلومات حول اهتماماتك لتقديم إعلانات أكثر صلة بك.</p>
+                    </div>
+                    
+                    <h3>حماية المعلومات</h3>
+                    <p>نحن نلتزم بحماية معلوماتك الشخصية ونستخدم تقنيات أمنية مناسبة لمنع الوصول غير المصرح به أو استخدام غير مصرح به أو تعديل أو إفشاء لمعلوماتك.</p>
+                    
+                    <h3>مشاركة المعلومات</h3>
+                    <p>لا نبيع أو نؤجر أو نشارك معلوماتك الشخصية مع أطراف ثالثة لأغراض تسويقية دون موافقتك الصريحة. قد نشارك معلومات مجمعة وغير شخصية لأغراض إحصائية.</p>
+                    
+                    <h3>الكوكيز (Cookies)</h3>
+                    <p>نستخدم تقنية الكوكيز لتحسين تجربة التصفح وتذكر تفضيلاتك. يمكنك تعطيل الكوكيز من خلال إعدادات المتصفح الخاص بك.</p>
+                    
+                    <h3>روابط خارجية</h3>
+                    <p>قد تحتوي منصتنا على روابط لمواقع خارجية. نحن لسنا مسؤولين عن ممارسات الخصوصية لهذه المواقع ونشجعك على مراجعة سياسات الخصوصية الخاصة بهم.</p>
+                    
+                    <h3>تغييرات على سياسة الخصوصية</h3>
+                    <p>قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سننشر أي تغييرات على هذه الصفحة وسنخطركم عبر البريد الإلكتروني إذا كانت التغييرات جوهرية.</p>
+                    
+                    <h3>اتصل بنا</h3>
+                    <p>إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه، يرجى الاتصال بنا عبر:</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>minhatliveapp@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>40785782</span>
+                        </div>
+                    </div>
+                    
+                    <p>آخر تحديث: ١ نوفمبر ٢٠٢٣</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page À propos -->
+    <div class="modal" id="about-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>عن منحة لايف</h2>
+                <button class="close-btn" id="close-about">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="content-page">
+                    <h2>عن منصة منحة لايف</h2>
+                    
+                    <p>منحة لايف هي منصة عربية رائدة تهدف إلى تمكين الشباب العربي من الوصول إلى أفضل الفرص التعليمية والمهنية حول العالم. تأسست المنصة عام 2020 بهدف سد الفجوة بين الطلاب العرب والفرص الدولية.</p>
+                    
+                    <h3>رؤيتنا</h3>
+                    <p>أن نكون المنصة الأولى عربياً في مجال الفرص التعليمية والمهنية، نساهم في بناء جيل عربي متمكن وقادر على المنافسة عالمياً.</p>
+                    
+                    <h3>رسالتنا</h3>
+                    <p>توفير بوابة شاملة تجمع أفضل الفرص التعليمية والتدريبية والوظيفية للشباب العربي، مع تقديم الدعم والإرشاد اللازمين لتحقيق طموحاتهم.</p>
+                    
+                    <h3>ما نقدمه</h3>
+                    <ul>
+                        <li>منح دراسية في أفضل الجامعات العالمية</li>
+                        <li>دورات تدريبية متخصصة عبر الإنترنت</li>
+                        <li>فرص عمل محلية ودولية</li>
+                        <li>معلومات ونصائح تعليمية</li>
+                        <li>استشارات أكاديمية ومهنية</li>
+                        <li>ورش عمل وندوات تعريفية</li>
+                    </ul>
+                    
+                    <h3>إنجازاتنا</h3>
+                    <p>منذ تأسيسنا، ساعدنا أكثر من 50,000 شاب عربي في:</p>
+                    <ul>
+                        <li>الحصول على منح دراسية في 30 دولة مختلفة</li>
+                        <li>الالتحاق ببرامج تدريبية متميزة</li>
+                        <li>الحصول على وظائف في شركات محلية ودولية</li>
+                        <li>تطوير مهاراتهم وقدراتهم الشخصية</li>
+                    </ul>
+                    
+                    <h3>فريقنا</h3>
+                    <p>نحن فريق من الخبراء والمتخصصين في المجال التعليمي، نعمل بدأب لتقديم أفضل الخدمات ونؤمن بقدرات الشباب العربي وإمكانياتهم اللامحدودة.</p>
+                    
+                    <h3>اتصل بنا</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>minhatliveapp@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>40785782</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Contact -->
+    <div class="modal" id="contact-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>اتصل بنا</h2>
+                <button class="close-btn" id="close-contact">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="content-page">
+                    <h2>تواصل مع منحة لايف</h2>
+                    
+                    <p>نحن هنا لمساعدتك! سواء كنت بحاجة إلى استفسار حول فرصة معينة، أو تريد مشاركة اقتراحاتك، أو تحتاج إلى دعم في عملية التقديم، فريق منحة لايف مستعد للرد على جميع استفساراتك.</p>
+                    
+                    <h3>طرق التواصل</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>minhatliveapp@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>40785782</span>
+                        </div>
+                    </div>
+                    
+                    <h3>أوقات العمل</h3>
+                    <p>نحن متاحون للرد على استفساراتك خلال الأوقات التالية:</p>
+                    <ul>
+                        <li>الأحد إلى الخميس: 9:00 صباحاً - 5:00 مساءً</li>
+                        <li>الجمعة والسبت: إجازة</li>
+                    </ul>
+                    
+                    <h3>مجالات الدعم</h3>
+                    <p>يمكننا مساعدتك في:</p>
+                    <ul>
+                        <li>استفسارات حول الفرص المتاحة</li>
+                        <li>نصائح لتحسين فرص القبول</li>
+                        <li>مراجعة المستندات المطلوبة</li>
+                        <li>إرشادات كتابة رسالة الدافع</li>
+                        <li>دعم تقني للموقع</li>
+                        <li>اقتراحات لتحسين الخدمة</li>
+                    </ul>
+                    
+                    <h3>معلومات إضافية</h3>
+                    <p>نهدف للرد على جميع الاستفسارات خلال 24 ساعة عمل. للاستفسارات العاجلة، نوصي باستخدام تطبيق واتساب للحصول على رد أسرع.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="#" id="privacy-link">سياسة الخصوصية</a>
+                <a href="#" id="contact-link">اتصل بنا</a>
+                <a href="#" id="about-link">عن منحة لايف</a>
+            </div>
+            <p>جميع الحقوق محفوظة &copy; 2023 منحة لايف</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Données des opportunités
+        const opportunities = [
+            {
+                id: 1,
+                category: "bourses",
+                title: "منحة جامعة الملك سعود للطلاب الدوليين",
+                subtitle: "منحة كاملة للدراسات العليا في جميع التخصصات",
+                country: "المملكة العربية السعودية",
+                level: "الماجستير, الدكتوراه",
+                deadline: "2023-12-31",
+                description: "منحة جامعة الملك سعود للطلاب الدوليين هي منحة دراسية كاملة التمويل مقدمة من جامعة الملك سعود في الرياض، المملكة العربية السعودية. تهدف هذه المنحة إلى جذب الطلاب المتميزين من جميع أنحاء العالم للدراسة في واحدة من أعرق الجامعات في المنطقة.",
+                documents: [
+                    "شهادة البكالوريوس الأصلية",
+                    "كشف الدرجات",
+                    "خطابي توصية أكاديميين",
+                    "رسالة الدافع",
+                    "صورة جواز السفر",
+                    "صورة شخصية"
+                ],
+                criteria: [
+                    "معدل تراكمي لا يقل عن 3.75 من 5",
+                    "إتقان اللغة العربية أو الإنجليزية حسب لغة البرنامج",
+                    "خبرة بحثية (للماجستير والدكتوراه)",
+                    "مقال بحثي (للدكتوراه)"
+                ],
+                applyUrl: "https://www.ksu.edu.sa/ar/Deans/Admission/International-Students"
+            },
+            {
+                id: 2,
+                category: "bourses",
+                title: "برنامج المنح التركية 2023",
+                subtitle: "منح دراسية للحصول على البكالوريوس والماجستير والدكتوراه",
+                country: "تركيا",
+                level: "البكالوريوس, الماجستير, الدكتوراه",
+                deadline: "2023-11-15",
+                description: "برنامج المنح التركية هو منحة دراسية ممولة بالكامل من قبل الحكومة التركية تهدف إلى دعم الطلاب الدوليين من مختلف أنحاء العالم للدراسة في الجامعات التركية. يقدم البرنامج فرصاً للدراسة في مراحل البكالوريوس والماجستير والدكتوراه.",
+                documents: [
+                    "شهادة الثانوية العامة أو الجامعية",
+                    "كشف الدرجات",
+                    "صورة جواز السفر",
+                    "صورة شخصية",
+                    "شهادة اللغة (إن وجدت)",
+                    "سيرة ذاتية"
+                ],
+                criteria: [
+                    "العمر أقل من 21 سنة للبكالوريوس",
+                    "العمر أقل من 30 سنة للماجستير",
+                    "العمر أقل من 35 سنة للدكتوراه",
+                    "معدل لا يقل عن 70% في الشهادة السابقة",
+                    "القدرة على إثبات الكفاءة في اللغة التركية أو الإنجليزية"
+                ],
+                applyUrl: "https://www.turkiyeburslari.gov.tr/"
+            },
+            {
+                id: 3,
+                category: "formations",
+                title: "دورة تطوير تطبيقات الويب",
+                subtitle: "تعلم تطوير تطبيقات الويب باستخدام أحدث التقنيات",
+                country: "عبر الإنترنت",
+                level: "جميع المستويات",
+                deadline: "2023-12-01",
+                description: "دورة تطوير تطبيقات الويب هي برنامج تدريبي مكثف عبر الإنترنت يهدف إلى تأهيل المشاركين لسوق العمل في مجال تطوير الويب. تغطي الدورة مجموعة شاملة من التقنيات والأدوات الحديثة المستخدمة في تطوير تطبيقات الويب.",
+                documents: [
+                    "سيرة ذاتية",
+                    "رسالة دافع",
+                    "شهادات سابقة (إن وجدت)"
+                ],
+                criteria: [
+                    "معرفة أساسية باستخدام الحاسوب",
+                    "اتصال جيد بالإنترنت",
+                    "الالتزام بحضور الجلسات التدريبية",
+                    "استعداد لقضاء 10-15 ساعة أسبوعياً للدراسة"
+                ],
+                applyUrl: "https://example.com/apply-web-dev"
+            },
+            {
+                id: 4,
+                category: "jobs",
+                title: "مطور ويب أمامي",
+                subtitle: "فرصة عمل في شركة رائدة في مجال التكنولوجيا",
+                country: "الإمارات العربية المتحدة",
+                level: "خبرة 2+ سنوات",
+                deadline: "2023-11-20",
+                description: "تعلن شركة تقنية رائدة في دبي عن حاجتها لمطور ويب أمامي للانضمام إلى فريق التطوير. سيكون المسؤول عن تطوير وتنفيذ واجهات المستخدم لتطبيقات الويب باستخدام أحدث التقنيات وأفضل الممارسات.",
+                documents: [
+                    "سيرة ذاتية محدثة",
+                    "خطاب تغطية",
+                    "شهادات الخبرة",
+                    "نماذج من الأعمال السابقة",
+                    "شهادات التدريب"
+                ],
+                criteria: [
+                    "خبرة لا تقل عن سنتين في تطوير الواجهات الأمامية",
+                    "إتقان HTML5, CSS3, JavaScript",
+                    "خبرة في إحدى أطر العمل (React, Vue.js, Angular)",
+                    "إجادة اللغة الإنجليزية",
+                    "القدرة على العمل ضمن فريق"
+                ],
+                applyUrl: "https://example.com/apply-frontend-job"
+            },
+            {
+                id: 5,
+                category: "infos",
+                title: "دليل التقديم للجامعات الأمريكية",
+                subtitle: "كل ما تحتاج معرفته للتقديم للجامعات الأمريكية",
+                country: "الولايات المتحدة",
+                level: "جميع المستويات",
+                deadline: "مستمر",
+                description: "دليل شامل يشرح خطوات التقديم للجامعات الأمريكية والمستندات المطلوبة ونصائح للقبول. يتضمن معلومات عن اختبارات القبول، كتابة المقالات، وخطابات التوصية.",
+                documents: [
+                    "شهادة الثانوية العامة",
+                    "كشف الدرجات",
+                    "نتائج اختبارات TOEFL/IELTS",
+                    "نتائج اختبار SAT/ACT",
+                    "مقالات التقديم",
+                    "خطابات التوصية"
+                ],
+                criteria: [
+                    "معدل تراكمي جيد في الثانوية العامة",
+                    "إجادة اللغة الإنجليزية",
+                    "اجتياز اختبارات القبول المطلوبة",
+                    "مقالات قوية تعبر عن الشخصية والإنجازات",
+                    "خطابات توصية من معلمين أو مشرفين"
+                ],
+                applyUrl: ""
+            },
+            {
+                id: 6,
+                category: "infos",
+                title: "كيفية كتابة رسالة الدافع",
+                subtitle: "نصائح وإرشادات لكتابة رسالة دافع قوية",
+                country: "جميع الدول",
+                level: "جميع المستويات",
+                deadline: "مستمر",
+                description: "تعلم كيفية كتابة رسالة دافع مقنعة تزيد من فرصك في القبول بالمنح الدراسية والوظائف. تتضمن نصائح حول الهيكل، المحتوى، والصياغة المؤثرة.",
+                documents: [
+                    "مسودة أولية للرسالة",
+                    "السيرة الذاتية",
+                    "معلومات عن الجهة المتقدم لها"
+                ],
+                criteria: [
+                    "وضوح الهدف من الرسالة",
+                    "ربط المؤهلات بمتطلبات الفرصة",
+                    "استخدام لغة احترافية ومقنعة",
+                    "الهيكل المنظم والمنطقي",
+                    "الخاتمة القوية والداعية للعمل"
+                ],
+                applyUrl: ""
+            }
+        ];
+
+        // Éléments DOM
+        const opportunitiesContainer = document.getElementById('opportunities-container');
+        const countryFilter = document.getElementById('country-filter');
+        const levelFilter = document.getElementById('level-filter');
+        const categoryFilter = document.getElementById('category-filter');
+        const modal = document.getElementById('detail-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const closeModal = document.getElementById('close-modal');
+        const privacyModal = document.getElementById('privacy-modal');
+        const privacyLink = document.getElementById('privacy-link');
+        const closePrivacy = document.getElementById('close-privacy');
+        const aboutModal = document.getElementById('about-modal');
+        const aboutLink = document.getElementById('about-link');
+        const closeAbout = document.getElementById('close-about');
+        const contactModal = document.getElementById('contact-modal');
+        const contactLink = document.getElementById('contact-link');
+        const closeContact = document.getElementById('close-contact');
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Afficher les opportunités
+            displayOpportunities(opportunities);
+            
+            // Configurer les écouteurs d'événements
+            setupEventListeners();
+        });
+
+        // Configurer les écouteurs d'événements
+        function setupEventListeners() {
+            // Filtres
+            countryFilter.addEventListener('change', filterOpportunities);
+            levelFilter.addEventListener('change', filterOpportunities);
+            categoryFilter.addEventListener('change', filterOpportunities);
+            
+            // Modal des détails
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            // Modal de politique de confidentialité
+            privacyLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                privacyModal.style.display = 'flex';
+            });
+            
+            closePrivacy.addEventListener('click', function() {
+                privacyModal.style.display = 'none';
+            });
+            
+            // Modal À propos
+            aboutLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                aboutModal.style.display = 'flex';
+            });
+            
+            closeAbout.addEventListener('click', function() {
+                aboutModal.style.display = 'none';
+            });
+            
+            // Modal Contact
+            contactLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                contactModal.style.display = 'flex';
+            });
+            
+            closeContact.addEventListener('click', function() {
+                contactModal.style.display = 'none';
+            });
+            
+            // Fermer les modals en cliquant en dehors
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+                if (event.target === privacyModal) {
+                    privacyModal.style.display = 'none';
+                }
+                if (event.target === aboutModal) {
+                    aboutModal.style.display = 'none';
+                }
+                if (event.target === contactModal) {
+                    contactModal.style.display = 'none';
+                }
+            });
+        }
+
+        // Afficher les opportunités
+        function displayOpportunities(opps) {
+            opportunitiesContainer.innerHTML = '';
+            
+            if (opps.length === 0) {
+                opportunitiesContainer.innerHTML = '<p style="text-align: center; grid-column: 1 / -1; padding: 2rem;">لا توجد فرص تطابق معايير البحث</p>';
+                return;
+            }
+            
+            opps.forEach(opp => {
+                const card = document.createElement('div');
+                card.className = 'opportunity-card';
+                
+                // Formater la date
+                let formattedDate = "مستمر";
+                if (opp.deadline !== 'مستمر') {
+                    const deadlineDate = new Date(opp.deadline);
+                    formattedDate = deadlineDate.toLocaleDateString('ar-SA');
+                }
+                
+                // Traduire la catégorie
+                const categoryText = {
+                    "bourses": "بـروامج الـدراسـيـة",
+                    "formations": "دورات تـدريـبـيـة", 
+                    "jobs": "وظـائـف",
+                    "infos": "مـعـلـومـات تـعـلـيـمـيـة"
+                }[opp.category] || opp.category;
+                
+                // Déterminer si c'est une info (un seul bouton)
+                const isInfo = opp.category === "infos";
+                
+                card.innerHTML = `
+                    <div class="card-header">
+                        <span class="category-badge">${categoryText}</span>
+                        <h3>${opp.title}</h3>
+                        <p>${opp.subtitle}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="opportunity-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-globe"></i>
+                                <span>الدولة: ${opp.country}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>المستوى: ${opp.level}</span>
+                            </div>
+                            <div class="meta-item deadline">
+                                <i class="fas fa-clock"></i>
+                                <span>آخر موعد: ${formattedDate}</span>
+                            </div>
+                        </div>
+                        <div class="card-actions ${isInfo ? 'single-btn' : ''}">
+                            <button class="btn btn-detail" data-id="${opp.id}">عرض التفاصيل</button>
+                            ${!isInfo ? `<a href="${opp.applyUrl}" target="_blank" class="btn btn-apply">تقديم الآن</a>` : ''}
+                        </div>
+                    </div>
+                `;
+                
+                opportunitiesContainer.appendChild(card);
+            });
+            
+            // Ajouter les écouteurs d'événements pour les boutons de détail
+            document.querySelectorAll('.btn-detail').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const opportunityId = this.getAttribute('data-id');
+                    showOpportunityDetails(opportunityId);
+                });
+            });
+        }
+
+        // Afficher les détails d'une opportunité dans le modal
+        function showOpportunityDetails(opportunityId) {
+            const opportunity = opportunities.find(opp => opp.id == opportunityId);
+            
+            if (!opportunity) return;
+            
+            // Formater la date
+            let formattedDate = "مستمر";
+            if (opportunity.deadline !== 'مستمر') {
+                const deadlineDate = new Date(opportunity.deadline);
+                formattedDate = deadlineDate.toLocaleDateString('ar-SA');
+            }
+            
+            // Déterminer si c'est une info (pas de bouton postuler)
+            const isInfo = opportunity.category === "infos";
+            
+            modalTitle.textContent = opportunity.title;
+            modalBody.innerHTML = `
+                <div class="detail-item">
+                    <div class="detail-label">الوصف</div>
+                    <div class="detail-value">${opportunity.description}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">الدولة</div>
+                    <div class="detail-value">${opportunity.country}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">المستوى</div>
+                    <div class="detail-value">${opportunity.level}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">آخر موعد</div>
+                    <div class="detail-value">${formattedDate}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">المستندات المطلوبة</div>
+                    <div class="detail-value">
+                        <ul class="detail-list">
+                            ${opportunity.documents.map(doc => `<li>${doc}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">معايير القبول</div>
+                    <div class="detail-value">
+                        <ul class="detail-list">
+                            ${opportunity.criteria.map(crit => `<li>${crit}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+                ${!isInfo ? `
+                <div class="card-actions" style="margin-top: 1.5rem;">
+                    <a href="${opportunity.applyUrl}" target="_blank" class="btn btn-apply" style="flex: 1;">تقديم الآن</a>
+                </div>
+                ` : ''}
+            `;
+            
+            modal.style.display = 'flex';
+        }
+
+        // Filtrer les opportunités
+        function filterOpportunities() {
+            const countryValue = countryFilter.value;
+            const levelValue = levelFilter.value;
+            const categoryValue = categoryFilter.value;
+            
+            let filteredOpps = opportunities;
+            
+            // Filtrer par catégorie
+            if (categoryValue) {
+                filteredOpps = filteredOpps.filter(opp => opp.category === categoryValue);
+            }
+            
+            // Filtrer par pays
+            if (countryValue) {
+                filteredOpps = filteredOpps.filter(opp => opp.country === countryValue);
+            }
+            
+            // Filtrer par niveau
+            if (levelValue) {
+                filteredOpps = filteredOpps.filter(opp => opp.level.includes(levelValue));
+            }
+            
+            // Afficher les résultats filtrés
+            displayOpportunities(filteredOpps);
+        }
+    </script>
+</body>
+</html>
